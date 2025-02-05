@@ -1,8 +1,6 @@
 #include <iostream>
 #include <variant>
 
-struct NoValue{};
-
 static std::ostream& operator<<(std::ostream& out, const std::variant<std::string, std::monostate>& var) {
         if (std::holds_alternative<std::string>(var))
                 out << std::get<std::string>(var);
