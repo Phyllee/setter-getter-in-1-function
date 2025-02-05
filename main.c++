@@ -27,7 +27,7 @@ public:
                 if (str_param != nullptr) {
                         size_t new_size = strlen(str_param) + 1;
 
-                        if (new_size != str_size) {
+                        if (new_size >= str_size) {
                                 str_size = new_size;
                                 delete[] str;
                                 str = new char[str_size];
@@ -35,7 +35,7 @@ public:
                         }
 
                         strcpy(this->str, str_param);
-                        return {};
+                        return std::monostate{};
                 }
                 else
                         return this->str;
